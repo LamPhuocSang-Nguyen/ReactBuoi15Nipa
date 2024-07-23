@@ -1,0 +1,26 @@
+.hook5{
+    padding: 50px;
+    font-size: 30px;
+    color:#fff;
+    transition: 2s;
+    background-color: aqua;
+    transform: translateX(-110%);
+}
+
+.hook5.active{
+    background-color: blue;
+    transform: translateX(0%);
+}
+
+.meo{
+    width: 100%;
+    height: 200px;
+    background-color:blueviolet;
+    transform: translateX(-110%);
+    transition: 1s;
+}
+
+.meo.active{
+    background-color: brown;
+    transform: translateX(0%);
+}
