@@ -22,3 +22,12 @@
     align-items: start;
     justify-content: space-between;
 }
+
+.itemCheck{
+    display: flex;
+    align-items: start;
+}
+
+.itemCheck input{
+    margin-right: 20px;
+}

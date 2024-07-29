@@ -26,7 +26,9 @@ export default function Todolist() {
         }
     ]
     const [listdata, setListdata] = useState(data);
-    const [text, setText] = useState("")
+    const [text, setText] = useState("");
+    const [isEdit, setIsEdit] = useState(false);
+    const [textItem, setTextItem] = useState("")
 
     // const fetchData = (list) => {
     //     let newList = listdata;
@@ -43,6 +45,9 @@ export default function Todolist() {
         setListdata(newListdata);
     }
 
+    const EditItem = (name)=>{
+        const newListdata = listdata.filter((item,index))
+    }
     // useEffect(() => {
     //     fetchData()
     // }, [text])
@@ -70,7 +75,19 @@ export default function Todolist() {
                 {
                     listdata.map((item, index) => {
                         return (<div className='dataItem'>
-                            <p>{item.name}</p>
+                            <div className='itemCheck'>
+                                <Input type='checkbox'></Input>
+                                {
+                                isEdit ? (<Input type='text' value={item.name} onChange={(e)=>(setTextItem(e.target.value))} onKeyDown={(e)=>{
+                                    if(e.key=="Enter"){
+                                        EditItem(textItem);
+                                        setTextItem("");
+                                    }
+                                }}></Input>)
+                                : 
+                                (<p onDoubleClick={()=>setIsEdit(!isEdit)}>{item.name}</p>)
+                                }
+                            </div>
                             <Button onClick={()=>deleteItem(item.id)}>X</Button>
                         </div>
                         )
