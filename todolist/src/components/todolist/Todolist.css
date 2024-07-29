@@ -1,0 +1,24 @@
+.title {
+    text-align: center;
+    color: white;
+}
+
+.content {
+    height: 40%;
+    background-color: coral;
+    padding: 50px;
+}
+
+.listdata {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.dataItem {
+    padding: 17px;
+    background-color: gainsboro;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+}
