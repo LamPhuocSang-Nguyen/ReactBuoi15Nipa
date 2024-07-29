@@ -45,8 +45,10 @@ export default function Todolist() {
         setListdata(newListdata);
     }
 
-    const EditItem = (name)=>{
-        const newListdata = listdata.filter((item,index))
+    const EditItem = (id,name)=>{
+        const newData = listdata.filter((item)=>(item.id === id));
+
+        setListdata([...listdata, {id:newData.id, name:name,check:newData.check}]); 
     }
     // useEffect(() => {
     //     fetchData()
@@ -79,8 +81,8 @@ export default function Todolist() {
                                 <Input type='checkbox'></Input>
                                 {
                                 isEdit ? (<Input type='text' value={item.name} onChange={(e)=>(setTextItem(e.target.value))} onKeyDown={(e)=>{
-                                    if(e.key=="Enter"){
-                                        EditItem(textItem);
+                                    if(e.key==="Enter"){
+                                        EditItem(item.id,textItem);
                                         setTextItem("");
                                     }
                                 }}></Input>)
