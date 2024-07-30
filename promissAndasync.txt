@@ -1,0 +1,16 @@
+-Trong Redux Toolkit, extraReducers là một phần quan trọng trong việc xử lý các action bên ngoài slice , đặc biệt là khi bạn đang sử dụng các thunks (như createAsyncThunk) để thực hiện các hoạt động không đồng bộ (asynchronous operations).
+builder.addCase(fetchProducts.pending, ...):
+Xử lý trạng thái khi thunk fetchProducts bắt đầu thực hiện (tức là khi request đang chờ). Ở đây, bạn có thể đặt status thành 'loading' để biểu thị rằng dữ liệu đang được tải.
+builder.addCase(fetchProducts.fulfilled, ...):
+Xử lý khi thunk fetchProducts hoàn thành thành công. action.payload chứa dữ liệu trả về từ API. Bạn có thể cập nhật trạng thái và lưu trữ dữ liệu sản phẩm vào items.
+builder.addCase(fetchProducts.rejected, ...):
+Xử lý khi thunk fetchProducts bị từ chối hoặc thất bại. action.error.message chứa thông tin lỗi. Bạn có thể cập nhật trạng thái và lưu thông tin lỗi vào error.
+
+
+Khi bạn sử dụng createAsyncThunk, Redux Toolkit tự động tạo ra ba loại action:
+Pending: sliceName/asyncActionName/pending
+Fulfilled: sliceName/asyncActionName/fulfilled
+Rejected: sliceName/asyncActionName/rejected
+
+
+async và await là các từ khóa trong JavaScript dùng để làm việc với các phép toán bất đồng bộ (asynchronous) theo cách đồng bộ hơn. Chúng giúp làm cho mã bất đồng bộ dễ đọc hơn và dễ hiểu hơn bằng cách ẩn đi các chi tiết của Promise và then/catch.
