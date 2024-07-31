@@ -11,6 +11,8 @@ export default function Cats(){
         dispatch(fetchCats())
     },[])
 
+    // console.log(cats)
+
     const handle_delete = (id)=>{
         dispatch(deleteCat(id))
     }
@@ -26,11 +28,11 @@ export default function Cats(){
     return (
         <div>
             <Container>
-                <Input placeholder='Name' onKeyDown={(e)=>{
+                <Input type='text' placeholder='Name' onKeyDown={(e)=>{
                     if(e.key==="Enter"){
                         handle_add({name:"Le Van Meo", checked:false})
                     }
-                }}>
+                }}></Input>
                 <Table hover>
                     <thead>
                         <tr></tr>
@@ -39,7 +41,7 @@ export default function Cats(){
                     {
                         cats.map((item,index)=>(
                         <tr key={index}>
-                            <td scope="row">{item.id}</td>
+                            <th scope="row">{item.id}</th>
                             <td className={item.checked?"cat-name active":"cat-name"}
                             onClick={()=>handle_rechecked(item)}>{item.name}</td>
                             <td>{item.checked?"true":"false"}</td>
@@ -49,8 +51,6 @@ export default function Cats(){
                     }
                     </tbody>
                 </Table>
-
-                </Input>
             </Container>
         </div>
     )
