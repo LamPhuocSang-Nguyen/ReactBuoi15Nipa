@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Product from "./pages/Products/Products";
 import ShowCart from "./pages/Cart/ShowCart";
+import ShowCats from "./pages/Cats/ShowCats";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/product" element={<Product />}></Route>
           {/* <Route path="/detail/:id" element={<ProductDetail />}></Route> */}
           <Route path="/ShowCart" element={<ShowCart />}></Route>
+          <Route path="/ShowCats" element={<ShowCats />}></Route>
           {/* <Route path="/*" element={<NotFound />}></Route> */}
         </Routes>
       </Router>

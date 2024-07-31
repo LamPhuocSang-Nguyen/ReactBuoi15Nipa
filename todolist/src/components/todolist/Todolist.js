@@ -80,7 +80,7 @@ export default function Todolist() {
                             <div className='itemCheck'>
                                 <Input type='checkbox'></Input>
                                 {
-                                isEdit ? (<Input type='text' value={item.name} onChange={(e)=>(setTextItem(e.target.value))} onKeyDown={(e)=>{
+                                isEdit ? (<Input type='text' value={textItem} onChange={(e)=>(setTextItem(e.target.value))} onKeyDown={(e)=>{
                                     if(e.key==="Enter"){
                                         EditItem(item.id,textItem);
                                         setTextItem("");
