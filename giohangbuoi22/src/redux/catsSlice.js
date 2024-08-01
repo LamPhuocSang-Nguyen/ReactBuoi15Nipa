@@ -1,19 +1,20 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from 'axios'
-import { setError } from "./cartSlice";
 
 
 const initialState={
     cats:[],
     currentPage:1,
     status:"start",
-    error:""
+    error:"",
+    totalPage:30,
+    currentPage:1
 }
 
 const url = "https://66a07c067053166bcabb90cf.mockapi.io/products";
 
-export const fetchCats = createAsyncThunk('cats/fetchCats', async()=>{
-    const res = await axios.get(url)
+export const fetchCats = createAsyncThunk('cats/fetchCats', async(page)=>{
+    const res = await axios.get(`${url}?page=${page}&&limit=5`)
     return res.data;
 })
 
